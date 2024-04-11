@@ -248,3 +248,28 @@ void LinkedList::delRec(int id) {
 	}
 }
 
+void LinkedList::delRecFirst(std::string first) {
+	LinkedList::Result* r = this->searchByFirst(first);
+	if (r == nullptr) {
+		std::cout << "Customer with first name: " << first << " not found!\n" << std::endl;
+	}
+	else {
+		for (int i = 0; i < r->count; i++) {
+			this->delRec(r->arr[i]->getId());
+		}
+		std::cout << "Record(s) deleted successfully.\n" << std::endl;
+	}
+}
+
+void LinkedList::delRecLast(std::string last) {
+	LinkedList::Result* r = this->searchByLast(last);
+	if (r == nullptr) {
+		std::cout << "Customer with last name: " << last << " not found!\n" << std::endl;
+	}
+	else {
+		for (int i = 0; i < r->count; i++) {
+			this->delRec(r->arr[i]->getId());
+		}
+		std::cout << "Record(s) deleted successfully.\n" << std::endl;
+	}
+}

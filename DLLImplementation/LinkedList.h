@@ -23,5 +23,7 @@ public:
 	void printResult(Node*);
 	void printAll();
 	void delRec(int);
+	void delRecFirst(std::string);
+	void delRecLast(std::string);
 };
 #endif

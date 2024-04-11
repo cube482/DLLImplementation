@@ -89,12 +89,33 @@ int main() {
 		}
 			break;
 		case 4: {
-			int idd;
-			string firstd, lastd;
-			int delChoice;
-			cout << "Enter ID of customer to delete:\n" << endl;
-			idd = choiceInt();
-			LL->delRec(idd);
+			cout << "Choose parameter to search for and delete customer node by:\n" << endl;
+			cout << "1. Customer ID\n" <<
+				"2. Customer First Name\n" <<
+				"3. Customer Last Name\n" << endl;
+			int choiced = choiceInt();
+			switch (choiced) {
+			default: {
+				cout << "Enter Customer ID you wish to delete:\n" << endl;
+				int idd = choiceInt();
+				LL->delRec(idd);
+			}
+			break;
+			case 2: {
+				cout << "Enter Customer First name to search for and delete (Warning: This will delete ALL customers with this first name):\n" << endl;
+				string first;
+				cin >> first;
+				LL->delRecFirst(first);
+			}
+			break;
+			case 3: {
+				cout << "Enter Customer Last name to search for and delete (Warning: This will delete ALL customers with this last name):\n" << endl;
+				string last;
+				cin >> last;
+				LL->delRecLast(last);
+			}
+			break;
+			}
 		}
 			break;
 		case 5: {
