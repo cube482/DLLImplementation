@@ -100,6 +100,10 @@ int main() {
 		case 5: {
 			LL->printAll();
 		}
+			 break;
+		case 6: {
+			run = false;
+		}
 		}
 	}
 }
