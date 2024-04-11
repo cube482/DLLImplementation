@@ -21,9 +21,10 @@ int main() {
 			"1. Create Linked List\n" <<
 			"2. Add New Customer Node to Linked List\n" <<
 			"3. Search Customer from Linked List\n" <<
-			"4. Delete Customer from Linked List\n" <<
-			"5. Show All Customers in Linked List\n" <<
-			"6. End Program\n" << endl;
+			"4. Edit Customer from Linked List\n"<<
+			"5. Delete Customer from Linked List\n" <<
+			"6. Show All Customers in Linked List\n" <<
+			"7. End Program\n" << endl;
 		choice = choiceInt();
 		switch (choice) {
 		case 1: {
@@ -47,7 +48,8 @@ int main() {
 				"2. Customer First name\n" <<
 				"3. Customer Last name\n" <<
 				"4. Customer Balance\n" <<
-				"5. Customer Spent\n" << endl;
+				"5. Customer Spent\n" <<
+				"6. Return to main menu\n" <<endl;
 			subchoice = choiceInt();
 			switch (subchoice) {
 			default: {
@@ -85,14 +87,76 @@ int main() {
 				LL->printResult(LL->searchBySpent(spents));
 			}
 				break;
+			case 6: {
+
+			}
+				break;
 			}
 		}
 			break;
 		case 4: {
+			if (LL == nullptr) {
+				cout << "Linked List is not created yet! Create Linked List first and populate with customer data!\n" << endl;
+			}
+			else if (LL->getStart() == nullptr) {
+				cout << "Linked List is empty! Try populating with customer data!\n" << endl;
+			}
+			else {
+				cout << "Enter Customer ID to edit:\n" << endl;
+				int ide = choiceInt();
+				Node* temp = LL->searchById(ide);
+				if (temp == nullptr) {
+					cout << "No such ID exists in Linked List!\n" << endl;
+				}
+				else {
+					LL->printResult(temp);
+					cout << "Which parameter would you like to edit?\n" << endl;
+					cout << "1. First Name\n" <<
+						"2. Last Name\n" <<
+						"3. Balance\n" <<
+						"4. Spent\n" << endl;
+					int choicee = choiceInt();
+					switch (choicee) {
+					case 1: {
+						cout << "Enter new first name:\n" << endl;
+						string input;
+						cin >> input;
+						temp->setFirst(input);
+					}
+						  break;
+					case 2: {
+						cout << "Enter new last name:\n" << endl;
+						string input;
+						cin >> input;
+						temp->setLast(input);
+					}
+						  break;
+					case 3: {
+						cout << "Enter new balance:\n" << endl;
+						double input = choiceDouble();
+						temp->setBal(input);
+					}
+						  break;
+					case 4: {
+						cout << "Enter new spent:\n" << endl;
+						double input = choiceDouble();
+						temp->setSpent(input);
+					}
+						  break;
+					default:
+						cout << "Invalid choice! Returning to main menu.\n" << endl;
+						break;
+					}
+				}
+			}
+		}
+			break;
+		case 5: {
 			cout << "Choose parameter to search for and delete customer node by:\n" << endl;
 			cout << "1. Customer ID\n" <<
 				"2. Customer First Name\n" <<
-				"3. Customer Last Name\n" << endl;
+				"3. Customer Last Name\n" <<
+				"4. Return to main menu\n" << endl;
 			int choiced = choiceInt();
 			switch (choiced) {
 			default: {
@@ -115,14 +179,18 @@ int main() {
 				LL->delRecLast(last);
 			}
 			break;
+			case 4: {
+				break;
+			}
+			break;
 			}
 		}
 			break;
-		case 5: {
+		case 6: {
 			LL->printAll();
 		}
 			 break;
-		case 6: {
+		case 7: {
 			run = false;
 		}
 		}

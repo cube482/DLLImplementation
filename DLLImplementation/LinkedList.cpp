@@ -7,6 +7,10 @@ LinkedList::LinkedList() {
 	this->start = nullptr;
 }
 
+Node* LinkedList::getStart() {
+	return this->start;
+}
+
 bool LinkedList::isDuplicate(Node* input) {
 	Node* temp = this->start;
 	while (temp != nullptr) {
@@ -130,7 +134,6 @@ LinkedList::Result* LinkedList::searchByBalance(double balance) {
 	Node* temp = this->start;
 	Node** arr;
 	int count = 0;
-	int choice;
 	std::vector<Node*> collect;
 	LinkedList::Result* ret = new LinkedList::Result;
 	while (temp != nullptr) {

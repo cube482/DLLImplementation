@@ -12,6 +12,7 @@ public:
 		Node** arr;
 	};
 	LinkedList();
+	Node* getStart();
 	bool isDuplicate(Node*);
 	void add(Node*);
 	Node* searchById(int);
@@ -25,5 +26,6 @@ public:
 	void delRec(int);
 	void delRecFirst(std::string);
 	void delRecLast(std::string);
+	void editRec(int);
 };
 #endif
