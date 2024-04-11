@@ -23,6 +23,5 @@ public:
 	void printResult(Node*);
 	void printAll();
 	void delRec(int);
-	void delRec(std::string, int);
 };
 #endif

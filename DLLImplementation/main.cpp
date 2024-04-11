@@ -92,29 +92,9 @@ int main() {
 			int idd;
 			string firstd, lastd;
 			int delChoice;
-			cout << "Choose parameter to delete by:\n" <<
-				"1. Delete by ID\n" <<
-				"2. Delete by First name\n" <<
-				"3. Delete by Last name\n" << endl;
-			delChoice = choiceInt(); 
-			switch (delChoice) {
-			default:
-				cout << "Enter ID of customer to delete:\n" << endl;
-				idd = choiceInt();
-				LL->delRec(idd);
-				break;
-			case 2:
-				cout << "Enter First name of customer to delete:\n" << endl;
-				cin >> firstd;
-				LL->delRec(firstd, 1);
-				break;
-			case 3:
-				cout << "Enter Last name of customer to delete:\n" << endl;
-				cin >> lastd;
-				LL->delRec(lastd, 2);
-			}
-			break;
-
+			cout << "Enter ID of customer to delete:\n" << endl;
+			idd = choiceInt();
+			LL->delRec(idd);
 		}
 			break;
 		case 5: {
